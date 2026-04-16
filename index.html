@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahogadas Julio's - Links</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rojo-salsa: #C41E3A;
+            --rojo-oscuro: #8B0000;
+            --naranja-calido: #FF6B35;
+            --naranja-suave: #FF8C42;
+            --amarillo-mostaza: #FFB627;
+            --crema: #FFF8F0;
+            --blanco: #FFFFFF;
+            --sombra: rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFE5D9 50%, #FFD6C4 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(196, 30, 58, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 182, 39, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 35px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--blanco);
+            box-shadow: 
+                0 10px 30px rgba(196, 30, 58, 0.3),
+                0 0 0 4px rgba(196, 30, 58, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, var(--rojo-salsa), var(--naranja-calido));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Righteous', cursive;
+            font-size: 48px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 
+                0 15px 40px rgba(196, 30, 58, 0.4),
+                0 0 0 6px rgba(196, 30, 58, 0.15);
+        }
+
+        .restaurant-name {
+            font-family: 'Righteous', cursive;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--rojo-salsa), var(--naranja-calido));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .handle {
+            color: var(--rojo-oscuro);
+            font-weight: 600;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .link-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 20px 25px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .link-card:nth-child(1) { animation-delay: 0.1s; }
+        .link-card:nth-child(2) { animation-delay: 0.2s; }
+        .link-card:nth-child(3) { animation-delay: 0.3s; }
+        .link-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--rojo-salsa), var(--naranja-calido));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 12px 30px rgba(196, 30, 58, 0.25),
+                0 4px 10px rgba(0, 0, 0, 0.1);
+            border-color: rgba(196, 30, 58, 0.2);
+        }
+
+        .link-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .link-card:hover .card-icon {
+            transform: scale(1.1) rotate(-5deg);
+            background: linear-gradient(135deg, var(--rojo-salsa), var(--naranja-calido));
+            color: white;
+        }
+
+        .link-card:hover .card-title {
+            color: var(--rojo-salsa);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(255, 107, 53, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--rojo-salsa);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .card-content {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2d2d2d;
+            margin-bottom: 3px;
+            transition: color 0.3s ease;
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .card-arrow {
+            color: var(--naranja-calido);
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .link-card:hover .card-arrow {
+            opacity: 1;
+            transform: translateX(0);
+            color: var(--rojo-salsa);
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--naranja-calido), var(--amarillo-mostaza));
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+            z-index: 2;
+        }
+
+        .badge.google {
+            background: linear-gradient(135deg, #4285F4, #34A853);
+            box-shadow: 0 2px 8px rgba(66, 133, 244, 0.3);
+        }
+
+        .social-footer {
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
+        }
+
+        .social-text {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--rojo-salsa);
+            font-size: 1.4rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--rojo-salsa), var(--naranja-calido));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.3);
+            color: white;
+            border-color: rgba(196, 30, 58, 0.1);
+        }
+
+        .social-btn:hover::before {
+            opacity: 1;
+        }
+
+        .social-btn i {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .social-btn:hover i {
+            transform: scale(1.1);
+        }
+
+        .salsa-drip {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 480px;
+            height: 8px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--rojo-salsa) 20%, 
+                var(--naranja-calido) 50%, 
+                var(--rojo-salsa) 80%, 
+                transparent 100%);
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 15px 50px;
+            }
+
+            .restaurant-name {
+                font-size: 1.8rem;
+            }
+
+            .link-card {
+                padding: 18px 20px;
+            }
+
+            .card-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .card-title {
+                font-size: 1rem;
+            }
+        }
+
+        .particle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: var(--naranja-calido);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.3;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="salsa-drip"></div>
+    
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 30%; animation-delay: 5s;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 10s;"></div>
+    <div class="particle" style="left: 90%; animation-delay: 15s;"></div>
+
+    <div class="container">
+        <header class="profile-section">
+            <div class="logo-container">
+                <div class="logo">AJ</div>
+            </div>
+            <h1 class="restaurant-name">Ahogadas Julio's</h1>
+            <p class="handle">@ahogadasjulios</p>
+        </header>
+
+        <nav class="links-container">
+            <!-- Menú Español - GitHub Pages -->
+            <a href="https://cookinglikedan-stack.github.io/Ahogadas-Julio-s/" 
+               target="_blank" 
+               class="link-card">
+                <div class="card-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Menú Español</div>
+                    <div class="card-subtitle">Nuestras tortas tradicionales</div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- Delivery - WhatsApp Directo -->
+            <a href="https://wa.me/523312442991" 
+               target="_blank" 
+               class="link-card">
+                <span class="badge">Hot</span>
+                <div class="card-icon">
+                    <i class="fas fa-motorcycle"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Delivery</div>
+                    <div class="card-subtitle">Pedir por WhatsApp</div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+            </a>
+
+            <!-- Ubicación - Google Maps -->
+            <a href="https://maps.app.goo.gl/rGh8bdYpfXp3e9oQ8" 
+               target="_blank" 
+               class="link-card">
+                <div class="card-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Ubicación</div>
+                    <div class="card-subtitle">Ven a conocernos</div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+            </a>
+
+            <!-- Reseña Google - Directo a Opiniones -->
+            <a href="https://www.google.com/search?sca_esv=00e10f0057297768&sxsrf=ANbL-n48JFSi3onPnzYEVr_QY44iHQ2pkw:1776353163075&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOSVv1lfrEkmUlMxWPP5upMzQ4sI93jhfi4qyjbjigf2mE3GT-ykkd6ZzvHZl11vzUXiUXdxWHvpl6PTf6tIjo8lpuJrUzYisZogq6ok5UCqLgBNvVg%3D%3D&q=Ahogadas+julio%E2%80%99s+Opiniones&sa=X&ved=2ahUKEwjrmp-a1_KTAxUYIUQIHei-BOIQ0bkNegQIOhAF&biw=1536&bih=730&dpr=1.25#lrd=0x8428b4f6a43107d3:0xa069d38909fad623,3,,,," 
+               target="_blank" 
+               class="link-card" 
+               style="background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.95)), linear-gradient(135deg, #4285F4, #34A853); background-clip: padding-box, border-box; border: 2px solid transparent;">
+                <span class="badge google">Maps</span>
+                <div class="card-icon" style="background: linear-gradient(135deg, rgba(66,133,244,0.1), rgba(52,168,83,0.1)); color: #4285F4;">
+                    <i class="fas fa-star" style="color: #FFB400;"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-title" style="background: linear-gradient(135deg, #4285F4, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Reseña en Google</div>
+                    <div class="card-subtitle">Califícanos en Google Maps ⭐</div>
+                </div>
+                <div class="card-arrow" style="color: #4285F4;">
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+            </a>
+        </nav>
+
+        <footer class="social-footer">
+            <p class="social-text">Síguenos para más antojitos</p>
+            <div class="social-icons">
+                <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-btn" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://wa.me/521234567890" target="_blank" class="social-btn" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.link-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Efecto parallax suave en el logo
+        document.addEventListener('mousemove', (e) => {
+            const logo = document.querySelector('.logo');
+            const x = (window.innerWidth / 2 - e.pageX) / 25;
+            const y = (window.innerHeight / 2 - e.pageY) / 25;
+            logo.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+</html>
